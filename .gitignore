@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Databases (rebuilt from data/)
+*.duckdb
+*.duckdb.wal
+
+# Local-only files
+.streamlit/secrets.toml
+data/private/
+
+# OS / editor
+.DS_Store
+.vscode/

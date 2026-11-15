@@ -1,0 +1,60 @@
+name: CI and deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v6
+      - name: setup uv
+        uses: astral-sh/setup-uv@v10.3.3
+        with:
+          enable-cache: true
+      - name: uv sync
+        run: uv sync --locked
+      - name: check
+        run: make check
+
+  deploy:
+    needs: check
+    if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - name: checkout
+        uses: actions/checkout@v6
+      - name: setup uv
+        uses: astral-sh/setup-uv@v10.3.3
+        with:
+          enable-cache: true
+      - name: uv sync
+        run: uv sync --locked
+      - name: build
+        run: make build
+      - name: configure pages
+        uses: actions/configure-pages@v5
+      - name: upload artifacts
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+      - name: deploy 
+        id: deployment  
+        uses: actions/deploy-pages@v4

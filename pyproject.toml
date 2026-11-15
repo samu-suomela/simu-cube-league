@@ -1,0 +1,29 @@
+[project]
+name = "simu-cube-league"
+version = "1.0.0"
+description = "Statistics for Simu's Cube in Magic the Gathering"
+readme = "README.md"
+requires-python = ">=3.14"
+license = "MIT"
+dependencies = [
+    "duckdb>=2.0.0",
+    "streamlit>=1.67.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff",
+    "ty>=0.0.104",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 80
+src = ["."]
+
+[tool.ruff.lint]
+extend-select = ["I"]
