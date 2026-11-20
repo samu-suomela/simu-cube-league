@@ -1,38 +1,30 @@
 [
   {
     "id": 1,
-    "name": "Elastinen"
+    "name": "Samu"
   },
   {
     "id": 2,
-    "name": "IsoH"
+    "name": "Ilkka"
   },
   {
     "id": 3,
-    "name": "Jare"
+    "name": "Joonas"
   },
   {
     "id": 4,
-    "name": "VilleGalle"
+    "name": "Jesse"
   },
   {
     "id": 5,
-    "name": "Cheek"
+    "name": "Tyko"
   },
   {
     "id": 6,
-    "name": "Karri Koira"
+    "name": "Lasse"
   },
   {
     "id": 7,
-    "name": "Pikku G"
-  },
-  {
-    "id": 8,
-    "name": "Tony Halme"
-  },
-  {
-    "id": 9,
-    "name": "Mikael Gabriel"
+    "name": "Olli"
   }
 ]
