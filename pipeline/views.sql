@@ -46,7 +46,8 @@ SELECT
   COUNT(*) FILTER (WHERE outcome = 'win')                           AS match_wins,
   COUNT(*) FILTER (WHERE outcome = 'loss')                          AS match_losses,
   COUNT(*) FILTER (WHERE outcome = 'draw')                          AS match_draws,
-  COUNT(*) FILTER (WHERE outcome = 'win') * 1.0 / COUNT(*)          AS match_win_rate,
+  COUNT(*) FILTER (WHERE outcome = 'win') * 1.0
+  / NULLIF(COUNT(*) FILTER (WHERE outcome <> 'draw'), 0)            AS match_win_rate,
   SUM(wins)                                                         AS game_wins,
   SUM(losses)                                                       AS game_losses,
   SUM(wins) * 1.0 / NULLIF(SUM(wins) + SUM(losses), 0)              AS game_win_rate,
@@ -70,7 +71,8 @@ SELECT
   COUNT(*) FILTER (WHERE outcome = 'win')                     AS match_wins,
   COUNT(*) FILTER (WHERE outcome = 'loss')                    AS match_losses,
   COUNT(*) FILTER (WHERE outcome = 'draw')                    AS match_draws,
-  COUNT(*) FILTER (WHERE outcome = 'win') * 1.0 / COUNT(*)    AS match_win_rate,
+  COUNT(*) FILTER (WHERE outcome = 'win') * 1.0
+  / NULLIF(COUNT(*) FILTER (WHERE outcome <> 'draw'), 0)      AS match_win_rate,
   SUM(wins)                                                   AS game_wins,
   SUM(losses)                                                 AS game_losses,
   SUM(wins) * 1.0 / NULLIF(SUM(wins) + SUM(losses), 0)        AS game_win_rate
