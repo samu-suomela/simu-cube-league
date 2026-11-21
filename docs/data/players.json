@@ -26,5 +26,37 @@
   {
     "id": 7,
     "name": "Olli"
+  },
+  {
+    "id": 8,
+    "name": "Ville"
+  },
+  {
+    "id": 9,
+    "name": "Vilho"
+  },
+  {
+    "id": 10,
+    "name": "Paavo"
+  },
+  {
+    "id": 11,
+    "name": "Max"
+  },
+  {
+    "id": 12,
+    "name": "Eetu"
+  },
+  {
+    "id": 13,
+    "name": "Tuukka"
+  },
+  {
+    "id": 14,
+    "name": "Tarmo"
+  },
+  {
+    "id": 15,
+    "name": "Mikko"
   }
 ]
